@@ -8,29 +8,63 @@
         <item name="colorOnPrimary">@color/dzc_on_primary</item>
         <item name="colorPrimaryContainer">@color/dzc_primary_container</item>
         <item name="colorOnPrimaryContainer">@color/dzc_on_primary_container</item>
+        <item name="android:colorBackground">@color/dzc_surface</item>
     </style>
 
-    <!-- Full-width primary action. Corner radius 14dp gives a modern
-         "stadium-lite" shape that reads as intentional, not default pill. -->
+    <!-- Elevated Material 3 Card style with subtle outline -->
+    <style name="Widget.DzcScale.Card" parent="Widget.Material3.Card.Elevated">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/dzc_card_outline</item>
+        <item name="cardBackgroundColor">#FFFFFF</item>
+        <item name="cardUseCompatPadding">false</item>
+    </style>
+
+    <!-- Full-width primary action button style -->
     <style name="Widget.DzcScale.PrimaryButton" parent="Widget.Material3.Button">
         <item name="android:textStyle">bold</item>
-        <item name="android:letterSpacing">0</item>
+        <item name="android:letterSpacing">0.02</item>
         <item name="backgroundTint">@color/dzc_primary_button</item>
         <item name="android:alpha">1.0</item>
         <item name="android:textColor">@color/dzc_primary_button_text</item>
         <item name="cornerRadius">14dp</item>
     </style>
 
+    <!-- Secondary action button style -->
+    <style name="Widget.DzcScale.SecondaryButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">14dp</item>
+        <item name="strokeColor">@color/dzc_primary</item>
+        <item name="android:textColor">@color/dzc_primary</item>
+    </style>
+
     <!-- Compact circular profile entry point. -->
     <style name="Widget.DzcScale.AvatarButton" parent="Widget.Material3.Button">
         <item name="android:insetLeft">0dp</item>
         <item name="android:insetRight">0dp</item>
-        <item name="android:minWidth">48dp</item>
-        <item name="android:minHeight">48dp</item>
-        <item name="cornerRadius">24dp</item>
+        <item name="android:minWidth">44dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="cornerRadius">22dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">16sp</item>
         <item name="backgroundTint">@color/dzc_avatar_background</item>
         <item name="android:textColor">@color/dzc_avatar_foreground</item>
+    </style>
+
+    <!-- Circular Icon Button -->
+    <style name="Widget.DzcScale.IconButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minWidth">44dp</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="cornerRadius">22dp</item>
+        <item name="strokeColor">@color/dzc_card_outline</item>
+        <item name="iconTint">@color/dzc_primary</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
     </style>
 </resources>

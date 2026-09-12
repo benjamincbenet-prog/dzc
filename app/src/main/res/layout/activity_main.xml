@@ -16,7 +16,7 @@
         android:paddingEnd="20dp"
         android:paddingBottom="48dp">
 
-        <!-- Header: app title + avatar -->
+        <!-- Header: app title + action buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,7 +34,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="DZC Scale Health"
-                    android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium" />
+                    android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/profileSummary"
@@ -48,58 +49,73 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/history"
-                style="@style/Widget.DzcScale.AvatarButton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                style="@style/Widget.DzcScale.IconButton"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
                 android:layout_marginStart="8dp"
                 android:contentDescription="Open measurement history"
-                android:text="H" />
+                app:icon="@drawable/ic_history" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/settings"
                 style="@style/Widget.DzcScale.AvatarButton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="12dp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="10dp"
                 android:contentDescription="Open profile and settings"
                 android:text="P" />
         </LinearLayout>
 
         <!-- Scale connection card -->
         <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.DzcScale.Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:cardCornerRadius="20dp"
-            app:cardUseCompatPadding="false">
+            android:layout_marginTop="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp">
+                android:padding="20dp">
 
-                <!-- Sentence case + teal tint replaces the generic ALL-CAPS overline -->
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Scale"
-                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
-                    android:textColor="@color/dzc_primary"
-                    android:letterSpacing="0.04" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Scale Icon"
+                        android:src="@drawable/ic_scale"
+                        app:tint="@color/dzc_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.04"
+                        android:text="Scale Connection"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                        android:textColor="@color/dzc_primary"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/status"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="8dp"
                     android:text="Ready to connect"
-                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+                    android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="6dp"
                     android:lineSpacingExtra="3dp"
                     android:text="Step on the scale after connecting. The app waits for stable weight and impedance data."
                     android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
@@ -110,38 +126,56 @@
                     style="@style/Widget.DzcScale.PrimaryButton"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Connect DZC Scale" />
+                    android:layout_marginTop="16dp"
+                    android:text="Connect DZC Scale"
+                    app:icon="@drawable/ic_scale"
+                    app:iconGravity="textStart"
+                    app:iconPadding="8dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <!-- Latest measurement card -->
         <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.DzcScale.Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:cardCornerRadius="20dp"
-            app:cardUseCompatPadding="false">
+            android:layout_marginTop="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp">
+                android:padding="20dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Latest measurement"
-                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
-                    android:textColor="@color/dzc_primary"
-                    android:letterSpacing="0.04" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="History Icon"
+                        android:src="@drawable/ic_history"
+                        app:tint="@color/dzc_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.04"
+                        android:text="Latest Measurement"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                        android:textColor="@color/dzc_primary"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/results"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="12dp"
                     android:lineSpacingExtra="4dp"
                     android:text="No measurement yet. Connect your DZC scale to collect weight and impedance data."
                     android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
@@ -151,25 +185,40 @@
 
         <!-- Health Connect card -->
         <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.DzcScale.Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:cardCornerRadius="20dp"
-            app:cardUseCompatPadding="false">
+            android:layout_marginTop="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp">
+                android:padding="20dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Health Connect"
-                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
-                    android:textColor="@color/dzc_primary"
-                    android:letterSpacing="0.04" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Sync Icon"
+                        android:src="@drawable/ic_sync"
+                        app:tint="@color/dzc_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.04"
+                        android:text="Health Connect"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                        android:textColor="@color/dzc_primary"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/healthSummary"
@@ -186,9 +235,12 @@
                     style="@style/Widget.DzcScale.PrimaryButton"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="16dp"
                     android:enabled="false"
-                    android:text="Save to Health Connect" />
+                    android:text="Save to Health Connect"
+                    app:icon="@drawable/ic_sync"
+                    app:iconGravity="textStart"
+                    app:iconPadding="8dp" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -201,7 +253,7 @@
             android:layout_marginEnd="8dp"
             android:gravity="center"
             android:lineSpacingExtra="4dp"
-            android:text="Weight and one transparent body-fat estimate are saved to Health Connect. Add an optional waist measurement in Profile to enable the BIA + anthropometric consensus method."
+            android:text="Weight and body-fat estimates are saved locally and synced to Health Connect. Add an optional waist measurement in Profile to enable anthropometric consensus."
             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
             android:textColor="@color/dzc_on_surface_variant" />
     </LinearLayout>

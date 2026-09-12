@@ -20,7 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Profile &amp; Settings"
-            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium" />
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
@@ -32,31 +33,48 @@
 
         <!-- Personal details card -->
         <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.DzcScale.Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:cardCornerRadius="20dp">
+            android:layout_marginTop="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp">
+                android:padding="20dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Personal details"
-                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
-                    android:textColor="@color/dzc_primary"
-                    android:letterSpacing="0.04" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Person Icon"
+                        android:src="@drawable/ic_person"
+                        app:tint="@color/dzc_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.04"
+                        android:text="Personal Details"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                        android:textColor="@color/dzc_primary"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:hint="Name">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/name"
                         android:layout_width="match_parent"
@@ -66,11 +84,12 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:hint="Height (cm)">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/height"
                         android:layout_width="match_parent"
@@ -79,11 +98,12 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:hint="Age">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/age"
                         android:layout_width="match_parent"
@@ -92,11 +112,12 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:hint="Waist circumference (cm) — optional">
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/waist"
                         android:layout_width="match_parent"
@@ -119,73 +140,181 @@
                     android:layout_marginTop="20dp"
                     android:text="Sex used by the body-composition model"
                     android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
-                    android:textColor="@color/dzc_on_surface_variant" />
+                    android:textColor="@color/dzc_on_surface"
+                    android:textStyle="bold" />
 
                 <RadioGroup
                     android:id="@+id/sex"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="6dp"
                     android:orientation="horizontal">
+
                     <com.google.android.material.radiobutton.MaterialRadioButton
                         android:id="@+id/female"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Female" />
+
                     <com.google.android.material.radiobutton.MaterialRadioButton
                         android:id="@+id/male"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginStart="24dp"
                         android:text="Male" />
                 </RadioGroup>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <!-- Paired scale and smart connection card -->
-        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" app:cardCornerRadius="20dp">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
-                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Scale" android:textAppearance="@style/TextAppearance.Material3.LabelLarge" android:textColor="@color/dzc_primary" />
-                <TextView android:id="@+id/scaleSummary" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
-                <com.google.android.material.button.MaterialButton android:id="@+id/pairScale" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Pair or change scale" />
-                <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/autoConnect" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Auto-connect when app opens" />
-                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="When enabled, the app briefly looks for your paired scale after opening. It does not run a 24/7 background scan." android:textAppearance="@style/TextAppearance.Material3.BodySmall" android:textColor="@color/dzc_on_surface_variant" />
-                <com.google.android.material.materialswitch.MaterialSwitch android:id="@+id/backgroundDetection" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Detect paired scale in background" />
-                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:lineSpacingExtra="2dp" android:text="Android watches only for your paired scale using a low-power system scan. When it appears, a visible measurement notification starts a short connection session. Pairing is required." android:textAppearance="@style/TextAppearance.Material3.BodySmall" android:textColor="@color/dzc_on_surface_variant" />
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.DzcScale.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Scale Icon"
+                        android:src="@drawable/ic_scale"
+                        app:tint="@color/dzc_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.04"
+                        android:text="Scale Connection Settings"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                        android:textColor="@color/dzc_primary"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/scaleSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                    android:textColor="@color/dzc_on_surface" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/pairScale"
+                    style="@style/Widget.DzcScale.SecondaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="12dp"
+                    android:text="Pair or change scale"
+                    app:icon="@drawable/ic_scale"
+                    app:iconGravity="textStart"
+                    app:iconPadding="8dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@color/dzc_card_outline" />
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/autoConnect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Auto-connect when app opens"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="When enabled, the app briefly looks for your paired scale after opening. It does not run a 24/7 background scan."
+                    android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                    android:textColor="@color/dzc_on_surface_variant" />
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/backgroundDetection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Detect paired scale in background"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:lineSpacingExtra="2dp"
+                    android:text="Android watches only for your paired scale using a low-power system scan. When it appears, a visible measurement notification starts a short connection session. Pairing is required."
+                    android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                    android:textColor="@color/dzc_on_surface_variant" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <!-- Health Connect sync card -->
         <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.DzcScale.Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:cardCornerRadius="20dp">
+            android:layout_marginTop="16dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp">
+                android:padding="20dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Health Connect"
-                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
-                    android:textColor="@color/dzc_primary"
-                    android:letterSpacing="0.04" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginEnd="8dp"
+                        android:contentDescription="Sync Icon"
+                        android:src="@drawable/ic_sync"
+                        app:tint="@color/dzc_primary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.04"
+                        android:text="Health Connect"
+                        android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+                        android:textColor="@color/dzc_primary"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <com.google.android.material.materialswitch.MaterialSwitch
                     android:id="@+id/autoSync"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
-                    android:text="Auto-sync completed measurements" />
+                    android:text="Auto-sync completed measurements"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="4dp"
                     android:lineSpacingExtra="2dp"
                     android:text="Each completed measurement is sent to Health Connect automatically. Android will ask for permission before the first sync."
                     android:textAppearance="@style/TextAppearance.Material3.BodySmall"
@@ -193,13 +322,13 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Save action — MaterialButton with the shared primary style -->
+        <!-- Save action -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/saveProfile"
             style="@style/Widget.DzcScale.PrimaryButton"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:layout_marginTop="24dp"
-            android:text="Save profile" />
+            android:text="Save Profile" />
     </LinearLayout>
 </ScrollView>
