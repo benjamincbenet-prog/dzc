@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       fail-fast: false
       matrix:
@@ -34,7 +36,7 @@ jobs:
 
       - name: Install Android SDK components
         run: |
-          sdkmanager "platforms;android-36" "build-tools;36.0.0"
+          sdkmanager "platform-tools" "platforms;android-36" "build-tools;36.0.0"
 
       - name: Make Gradle wrapper executable
         run: chmod +x ./gradlew
