@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dzc_avatar_background">#0B6E69</color>
+    <color name="dzc_avatar_foreground">#FFFFFFFF</color>
+    <color name="dzc_disabled_container">#8AB8B6</color>
+    <color name="dzc_on_primary">#FFFFFF</color>
+    <color name="dzc_on_primary_container">#002020</color>
+    <color name="dzc_on_surface">#191C1C</color>
+    <color name="dzc_on_surface_variant">#3F4948</color>
+    <color name="dzc_primary">#0B6E69</color>
+    <color name="dzc_primary_container">#CCF0EE</color>
+    <color name="dzc_primary_dark">#094E4A</color>
+    <color name="dzc_surface">#F7FAFA</color>
+    <string name="app_name">DZC Scale Health</string>
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        
+        <item name="colorPrimary">@color/dzc_primary</item>
+        <item name="colorOnPrimary">@color/dzc_on_primary</item>
+        <item name="colorPrimaryContainer">@color/dzc_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/dzc_on_primary_container</item>
+    </style>
+    <style name="Widget.DzcScale.AvatarButton" parent="Widget.Material3.Button">
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="cornerRadius">24dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="backgroundTint">@color/dzc_avatar_background</item>
+        <item name="android:textColor">@color/dzc_avatar_foreground</item>
+    </style>
+    <style name="Widget.DzcScale.PrimaryButton" parent="Widget.Material3.Button">
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="backgroundTint">@color/dzc_primary_button</item>
+        <item name="android:alpha">1.0</item>
+        <item name="android:textColor">@color/dzc_primary_button_text</item>
+        <item name="cornerRadius">14dp</item>
+    </style>
+</resources>

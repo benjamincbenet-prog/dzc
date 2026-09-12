@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tonya.dzcscale"
+    android:versionCode="12"
+    android:versionName="2.1" >
+
+    <uses-sdk
+        android:minSdkVersion="28"
+        android:targetSdkVersion="36" />
+
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Health Connect write permissions. These must also have a permission-usage rationale activity. -->
+
+    <uses-permission android:name="android.permission.health.WRITE_WEIGHT" />
+    <uses-permission android:name="android.permission.health.WRITE_BODY_FAT" />
+    <uses-permission android:name="android.permission.health.WRITE_LEAN_BODY_MASS" />
+    <uses-permission android:name="android.permission.health.WRITE_BODY_WATER_MASS" />
+    <uses-permission android:name="android.permission.health.WRITE_BASAL_METABOLIC_RATE" />
+
+    <!-- Required for the Android 13 Health Connect APK provider. -->
+
+    <queries>
+        <package android:name="com.google.android.apps.healthdata" />
+        <package android:name="com.itsaky.androidide" />
+    </queries>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.itsaky.androidide.permission.BIND_LOG_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+
+    <permission
+        android:name="com.tonya.dzcscale.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.tonya.dzcscale.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:extractNativeLibs="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="DZC Scale Health"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/AppTheme" >
+        <receiver
+            android:name="com.tonya.dzcscale.ScaleDetectionReceiver"
+            android:exported="false" />
+
+        <service
+            android:name="com.tonya.dzcscale.BackgroundMeasurementService"
+            android:exported="false"
+            android:foregroundServiceType="connectedDevice" />
+
+        <activity
+            android:name="com.tonya.dzcscale.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.tonya.dzcscale.HistoryActivity"
+            android:exported="false" />
+
+        <service
+            android:name="com.tonya.dzcscale.DzcMeasureTileService"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="Start DZC measurement"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" >
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.tonya.dzcscale.MainActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- NFC tag actions: custom dzcscale://measure URI or an app-specific NDEF MIME record. -->
+
+            <intent-filter>
+                <action android:name="com.tonya.dzcscale.action.MEASURE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="measure"
+                    android:scheme="dzcscale" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="application/vnd.com.tonya.dzcscale.measure" />
+            </intent-filter>
+        </activity>
+
+        <!-- Privacy / permission rationale shown from Health Connect. -->
+
+        <activity
+            android:name="com.tonya.dzcscale.HealthPermissionsRationaleActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
+            </intent-filter>
+        </activity>
+
+        <!-- Android 14+ / framework Health Connect requirement. -->
+
+        <activity-alias
+            android:name="com.tonya.dzcscale.ViewHealthPermissionUsage"
+            android:exported="true"
+            android:permission="android.permission.START_VIEW_PERMISSION_USAGE"
+            android:targetActivity="com.tonya.dzcscale.HealthPermissionsRationaleActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE" />
+
+                <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
+            </intent-filter>
+        </activity-alias>
+
+        <provider
+            android:name="com.itsaky.androidide.logsender.utils.LogSenderInstaller"
+            android:authorities="com.tonya.dzcscale.logsender-installer"
+            android:enabled="@bool/logsender_enabled"
+            android:exported="false" />
+
+        <service
+            android:name="com.itsaky.androidide.logsender.LogSenderService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+        <service
+            android:name="androidx.health.platform.client.impl.sdkservice.HealthDataSdkService"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="androidx.health.platform.client.ACTION_BIND_SDK_SERVICE" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="com.tonya.dzcscale.androidx-startup"
+            android:exported="false" >
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
+        <receiver
+            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+            android:directBootAware="false"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.DUMP" >
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

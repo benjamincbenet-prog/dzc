@@ -1,0 +1,74 @@
+[
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/layout_activity_main.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/layout_activity_settings.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/layout_activity_history.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/layout/activity_history.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/drawable-nodpi_dzc_scale_app_icon_source.png.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/drawable-nodpi/dzc_scale_app_icon_source.png"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/color_dzc_primary_button.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/color/dzc_primary_button.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/color_dzc_primary_button_text.xml.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/color/dzc_primary_button_text.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/drawable-nodpi_dzc_scale_app_icon_round_source.png.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/drawable-nodpi/dzc_scale_app_icon_round_source.png"
+    },
+    {
+        "merged": "com.tonya.dzcscale.app-debug-34:/layout_activity_settings.xml.flat",
+        "source": "com.tonya.dzcscale.app-main-36:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-debug-34:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/data/data/com.itsaky.androidide/files/home/.gradle/daemon/8.14.3/com.tonya.dzcscale.app-main-36:/mipmap-xxhdpi/ic_launcher.png"
+    }
+]

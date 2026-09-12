@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand: deep teal — health-focused, calm, distinct from M3 default purple -->
+    <color name="dzc_primary">#0B6E69</color>
+    <color name="dzc_primary_dark">#094E4A</color>
+    <color name="dzc_primary_container">#CCF0EE</color>
+    <color name="dzc_on_primary">#FFFFFF</color>
+    <color name="dzc_on_primary_container">#002020</color>
+
+    <!-- Surface / neutral -->
+    <color name="dzc_surface">#F7FAFA</color>
+    <color name="dzc_on_surface">#191C1C</color>
+    <color name="dzc_on_surface_variant">#3F4948</color>
+
+    <!-- Avatar -->
+    <color name="dzc_avatar_background">#0B6E69</color>
+    <color name="dzc_avatar_foreground">#FFFFFFFF</color>
+
+    <!-- Disabled / muted teal (replaces grey-purple) -->
+    <color name="dzc_disabled_container">#8AB8B6</color>
+</resources>

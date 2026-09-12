@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Desaturated teal keeps the brand character in the disabled state
+         instead of the previous grey-purple, which read as broken. -->
+    <item android:state_enabled="false" android:color="#8AB8B6" />
+    <item android:color="#0B6E69" />
+</selector>

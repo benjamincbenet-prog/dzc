@@ -1,0 +1,64 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" android:usesPermissionFlags="neverForLocation" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Health Connect write permissions. These must also have a permission-usage rationale activity. -->
+    <uses-permission android:name="android.permission.health.WRITE_WEIGHT" />
+    <uses-permission android:name="android.permission.health.WRITE_BODY_FAT" />
+    <uses-permission android:name="android.permission.health.WRITE_LEAN_BODY_MASS" />
+    <uses-permission android:name="android.permission.health.WRITE_BODY_WATER_MASS" />
+    <uses-permission android:name="android.permission.health.WRITE_BASAL_METABOLIC_RATE" />
+
+    <!-- Required for the Android 13 Health Connect APK provider. -->
+    <queries>
+        <package android:name="com.google.android.apps.healthdata" />
+    </queries>
+
+    <application
+        android:theme="@style/AppTheme"
+        android:label="DZC Scale Health"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:allowBackup="true">
+        <receiver android:name=".ScaleDetectionReceiver" android:exported="false" />
+        <service android:name=".BackgroundMeasurementService" android:exported="false" android:foregroundServiceType="connectedDevice" />
+        <activity android:name=".SettingsActivity" android:exported="false" />
+        <activity android:name=".HistoryActivity" android:exported="false" />
+        <service android:name=".DzcMeasureTileService" android:label="Start DZC measurement" android:icon="@mipmap/ic_launcher" android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" android:exported="true">
+            <intent-filter><action android:name="android.service.quicksettings.action.QS_TILE" /></intent-filter>
+        </service>
+
+        <activity android:name=".MainActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- NFC tag actions: custom dzcscale://measure URI or an app-specific NDEF MIME record. -->
+            <intent-filter><action android:name="com.tonya.dzcscale.action.MEASURE" /></intent-filter>
+            <intent-filter><action android:name="android.intent.action.VIEW" /><category android:name="android.intent.category.DEFAULT" /><data android:scheme="dzcscale" android:host="measure" /></intent-filter>
+            <intent-filter><action android:name="android.nfc.action.NDEF_DISCOVERED" /><category android:name="android.intent.category.DEFAULT" /><data android:mimeType="application/vnd.com.tonya.dzcscale.measure" /></intent-filter>
+        </activity>
+
+        <!-- Privacy / permission rationale shown from Health Connect. -->
+        <activity android:name=".HealthPermissionsRationaleActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
+            </intent-filter>
+        </activity>
+
+        <!-- Android 14+ / framework Health Connect requirement. -->
+        <activity-alias
+            android:name=".ViewHealthPermissionUsage"
+            android:exported="true"
+            android:targetActivity=".HealthPermissionsRationaleActivity"
+            android:permission="android.permission.START_VIEW_PERMISSION_USAGE">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE" />
+                <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
+            </intent-filter>
+        </activity-alias>
+    </application>
+</manifest>
